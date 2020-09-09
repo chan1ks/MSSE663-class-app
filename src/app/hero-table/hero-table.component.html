@@ -1,0 +1,24 @@
+<div class="container-width-full">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+        <th scope="col" sortable="specialty" (sort)="onSort($event)">
+          Specialty
+        </th>
+        <th scope="col" sortable="ranking" (sort)="onSort($event)">Ranking</th>
+        <th scope="col" sortable="hire" (sort)="onSort($event)">Hire</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <th scope="row">{{ hero.id }}</th>
+        <th>{{ hero.name }}</th>
+        <th>{{ hero.specialty }}</th>
+        <th>{{ hero.ranking }}</th>
+        <th>{{ hero.rent | currency }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

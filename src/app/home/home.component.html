@@ -1,12 +1,8 @@
-<app-header [isAuth]="isAuth"></app-header>
-
 <!-- body -->
 
-<p>Budget: {{ budget | currency }}</p>
-
-<div *ngFor="let hero of heroes">
-  <p>Name: {{ hero.name }}</p>
-  <p>Value: {{ hero.rent | currency }}</p>
+<div class="container-width-full">
+  <h2>Budget: {{ budget | currency }}</h2>
 </div>
+<app-hero-table></app-hero-table>
 
 <!-- body end -->
