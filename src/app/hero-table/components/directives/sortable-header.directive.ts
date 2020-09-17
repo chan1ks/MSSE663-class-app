@@ -1,5 +1,5 @@
 import { Directive, Input, Output, EventEmitter } from '@angular/core';
-import { Hero } from '../../heroes';
+import { Hero } from '../../models/hero.model';
 
 export type SortColumn = keyof Hero | '';
 // export type SortDirection = 'asc' | 'desc' | '';

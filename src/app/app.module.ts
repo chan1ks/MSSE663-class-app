@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HomeModule } from './home/home.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CommonModule,
     NgrxModule,
     LoginModule,
