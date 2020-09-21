@@ -1,17 +1,10 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import {
-  loadHeroes,
-  loadHeroesSuccess,
-  loadHeroesFailure,
-  loadHero,
-  loadHeroSuccess,
-  loadHeroFailure,
-} from '../actions';
-import { HEROES_INTIAL_STATE } from '../heroes-initial-state';
+import { loadHeroes, loadHeroesSuccess, loadHeroesFailure } from '../actions';
+import { HEROES_INITIAL_STATE } from '../heroes-initial-state';
 import { HeroesState } from '../heroes-state.model';
 
 const reducer = createReducer(
-  HEROES_INTIAL_STATE,
+  HEROES_INITIAL_STATE,
   on(loadHeroes, (state) => ({ ...state, loading: true })),
   on(loadHeroesSuccess, (state) => ({
     ...state,

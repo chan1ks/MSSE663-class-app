@@ -1,7 +1,7 @@
 import { Rank } from '../models/hero.model';
 import { HeroesState } from './heroes-state.model';
 
-export const HEROES_INTIAL_MOCK_STATE: HeroesState = {
+export const HEROES_INITIAL_MOCK_STATE: HeroesState = {
   heroes: [
     {
       _id: 'heroId',

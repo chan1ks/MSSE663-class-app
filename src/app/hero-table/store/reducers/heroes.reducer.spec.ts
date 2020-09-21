@@ -1,7 +1,7 @@
-import { AuthState } from '../models/auth-state.model';
-import { requestLogin } from '../actions/auth.actions';
-import { AUTH_INITIAL_MOCK_STATE } from '../auth-initial-mock-state';
-import { authReducer } from './auth.reducer';
+import { requestLogin } from 'src/app/store';
+import { AUTH_INITIAL_MOCK_STATE } from 'src/app/store/auth-initial-mock-state';
+import { AuthState } from 'src/app/store/models/auth-state.model';
+import { authReducer } from 'src/app/store/reducers/auth.reducer';
 
 describe('Auth Reducer', () => {
   it('should set the isAuth key to true on `login`', () => {
