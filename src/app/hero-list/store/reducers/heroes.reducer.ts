@@ -6,14 +6,16 @@ import { HeroesState } from '../heroes-state.model';
 const reducer = createReducer(
   HEROES_INITIAL_STATE,
   on(loadHeroes, (state) => ({ ...state, loading: true })),
-  on(loadHeroesSuccess, (state) => ({
+  on(loadHeroesSuccess, (state, { heroes }) => ({
     ...state,
-    isAuth: true,
+    heroes,
+    loading: false,
+    loaded: true,
   })),
   on(loadHeroesFailure, (state) => ({
     ...state,
-    isAuth: false,
     loading: false,
+    loaded: false,
   }))
 );
 

@@ -5,7 +5,7 @@ import { User } from 'src/app/models/user.model';
 export const loadMe = createAction('[API - User] Load User');
 export const loadMeSucess = createAction(
   '[API - User] Load User Success',
-  props<{ users: User[] }>()
+  props<{ user: User }>()
 );
 export const loadMeFailure = createAction(
   '[API - User] Load User Failure',

@@ -30,7 +30,11 @@ describe('NavComponent', () => {
   });
 
   it('should display an array of links', () => {
-    const links = [{ title: 'Dashboard', fragment: '/' }];
+    const links = [
+      { title: 'Dashboard', fragment: '/' },
+      { title: 'Heroes', fragment: '/heroes' },
+      { title: 'Login', fragment: '/login' },
+    ];
     expect(component.links).toEqual(links);
   });
 });

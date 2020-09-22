@@ -33,6 +33,7 @@ const reducer = createReducer(
     ...state,
     isAuth: true,
     token,
+    loading: false,
   })),
   on(requestLoginFailure, (state) => ({
     ...state,

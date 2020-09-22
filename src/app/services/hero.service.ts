@@ -17,23 +17,36 @@ const header = (token: string) => ({
 export class HeroesService {
   constructor(private http: HttpClient) {}
 
-  getHeroes(token): Observable<HeroResponse[]> {
-    console.log(token);
+  getHeroes(token: string): Observable<HeroResponse[]> {
     return this.http.get<HeroResponse[]>(HEROES_URL, {
       headers: header(token),
     });
   }
 
-  getHero(heroId: number): Observable<HeroResponse[]> {
-    return this.http.get<HeroResponse[]>(`${HEROES_URL}/${heroId}`);
+  getHero(heroId: string, token: string): Observable<HeroResponse> {
+    return this.http.get<HeroResponse>(`${HEROES_URL}/${heroId}`, {
+      headers: header(token),
+    });
   }
 
-  createHero(name, specialty, ranking, rent): Observable<HeroResponse> {
-    return this.http.post<HeroResponse>(HEROES_URL, {
-      name,
-      specialty,
-      ranking,
-      rent,
-    });
+  createHero(
+    name: string,
+    specialty: string,
+    ranking: string,
+    rent: string | number,
+    token: string
+  ): Observable<HeroResponse> {
+    return this.http.post<HeroResponse>(
+      HEROES_URL,
+      {
+        name,
+        specialty,
+        ranking,
+        rent,
+      },
+      {
+        headers: header(token),
+      }
+    );
   }
 }

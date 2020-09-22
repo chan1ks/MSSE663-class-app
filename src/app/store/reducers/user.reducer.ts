@@ -6,9 +6,9 @@ import { loadMe, loadMeSucess, loadMeFailure } from '../actions/user.actions';
 const reducer = createReducer(
   USER_INITIAL_STATE,
   on(loadMe, (state) => ({ ...state, loading: true })),
-  on(loadMeSucess, (state, { users }) => ({
+  on(loadMeSucess, (state, { user }) => ({
     ...state,
-    users,
+    user,
     loading: false,
   })),
   on(loadMeFailure, (state) => ({

@@ -14,9 +14,18 @@ export const loadHeroesFailure = createAction(
   '[API Heroes] Load Heroes Failure',
   props<{ error: any }>()
 );
-export const loadHero = createAction('[API Heroes] Load Hero');
-export const loadHeroSuccess = createAction('[API Heroes] Load Hero Success');
-export const loadHeroFailure = createAction('[API Heroes] Load Hero Failure');
+export const loadHero = createAction(
+  '[API Heroes] Load Hero',
+  props<{ heroId: string }>()
+);
+export const loadHeroSuccess = createAction(
+  '[API Heroes] Load Hero Success',
+  props<{ hero: Hero }>()
+);
+export const loadHeroFailure = createAction(
+  '[API Heroes] Load Hero Failure',
+  props<{ error: any }>()
+);
 export const createNewHero = createAction('[API Heroes] Create Hero');
 export const createNewHeroSuccess = createAction(
   '[API Heroes] Create Hero Success'

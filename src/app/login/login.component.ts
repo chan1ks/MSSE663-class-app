@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private store$: Store<ApplicationState>
+    private store: Store<ApplicationState>
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +26,6 @@ export class LoginComponent implements OnInit {
 
   submit() {
     const { username, password } = this.loginForm.value;
-    this.store$.dispatch(requestLogin({ username, password }));
+    this.store.dispatch(requestLogin({ username, password }));
   }
 }

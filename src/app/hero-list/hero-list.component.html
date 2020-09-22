@@ -17,7 +17,11 @@
     <tbody>
       <tr *ngFor="let hero of heroes; let id = index">
         <th scope="row">{{ id }}</th>
-        <th>{{ hero.name }}</th>
+        <th>
+          <a [routerLink]="['/heroes', hero._id]">
+            {{ hero.name }}
+          </a>
+        </th>
         <th>{{ hero.specialty }}</th>
         <th>{{ hero.ranking }}</th>
         <th>{{ hero.rent | currency }}</th>
