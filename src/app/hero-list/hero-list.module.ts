@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HeroesListComponent } from './hero-table.component';
+import { HeroesListComponent } from './hero-list.component';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 
 import { SortableHeaderModule } from './components/directives/sortable-header.module';
@@ -14,4 +14,4 @@ const components = [HeroesListComponent, HeroDetailsComponent];
   imports: [CommonModule, RouterModule, SortableHeaderModule],
   exports: [...components],
 })
-export class HeroTableModule {}
+export class HeroListModule {}
