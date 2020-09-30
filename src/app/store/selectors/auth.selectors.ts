@@ -8,8 +8,3 @@ export const getIsAuth = createSelector(
   authState,
   ({ isAuth }: AuthState) => isAuth
 );
-
-export const getToken = createSelector(
-  authState,
-  ({ token }: AuthState) => token
-);

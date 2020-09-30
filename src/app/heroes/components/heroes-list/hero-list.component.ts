@@ -1,15 +1,17 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChildren,
+  QueryList,
+  Input,
+} from '@angular/core';
 import {
   SortableHeaderDirective,
   SortEvent,
   SortDirection,
   compare,
-} from './components/directives/sortable-header.directive';
-import { Observable } from 'rxjs';
-import { Hero } from './models/hero.model';
-import { Store } from '@ngrx/store';
-import { ApplicationState } from '../store/models/application-state.model';
-import { loadHeroes, getHeroes } from '../hero-list/store';
+} from '../directives/sortable-header.directive';
+import { Hero } from '../../models/hero.model';
 
 @Component({
   selector: 'app-hero-list',
@@ -17,18 +19,15 @@ import { loadHeroes, getHeroes } from '../hero-list/store';
   styleUrls: ['./hero-list.component.scss'],
 })
 export class HeroesListComponent implements OnInit {
-  heroes$: Observable<Hero[]>;
+  @Input() heroes: Hero[];
 
   // @ViewChildren(SortableHeaderDirective) headers: QueryList<
   //   SortableHeaderDirective
   // >;
 
-  constructor(private store: Store<ApplicationState>) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.heroes$ = this.store.select(getHeroes);
-    this.store.dispatch(loadHeroes());
-  }
+  ngOnInit(): void {}
 
   onSort({ column, direction }: SortEvent) {
     // // resetting other headers

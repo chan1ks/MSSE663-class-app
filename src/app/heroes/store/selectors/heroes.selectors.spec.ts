@@ -1,6 +1,6 @@
 import { HEROES_INITIAL_MOCK_STATE } from '../heroes-initial-mock-state';
 import { HERO_INITIAL_MOCK_STATE } from '../hero-initial-mock-state';
-import { getHeroes, getHeroesLoaded, getSelectedHero } from '../selectors';
+import { getHeroes, getHeroesLoaded, getSelectedHero } from '.';
 
 const heroesState = HEROES_INITIAL_MOCK_STATE;
 const heroState = HERO_INITIAL_MOCK_STATE;

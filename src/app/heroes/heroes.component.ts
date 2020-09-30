@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HeroesFacade } from '../heroes/heroes.facade';
-import { Hero } from '../heroes/models/hero.model';
+import { Hero } from './models/hero.model';
+import { HeroesFacade } from './heroes.facade';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  budget = 10000;
+export class HeroesComponent implements OnInit {
   heroes$: Observable<Hero[]>;
 
   constructor(private heroesFacade: HeroesFacade) {}

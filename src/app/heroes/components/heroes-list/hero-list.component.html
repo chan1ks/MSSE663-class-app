@@ -1,8 +1,5 @@
 <div class="container-width-full">
-  <table
-    class="table table-striped"
-    *ngIf="heroes$ | async as heroes; else loadingHeroes"
-  >
+  <table class="table table-striped" *ngIf="heroes; else loadingHeroes">
     <thead>
       <tr>
         <th scope="col">#</th>

@@ -22,7 +22,7 @@ describe('Auth Reducer', () => {
 
   it('should isAuth key to true on `requestLoginSuccess`', () => {
     const action = requestLoginSuccess({
-      token: AUTH_INITIAL_MOCK_STATE.token,
+      token: 'token',
     });
     const expected: AuthState = {
       ...AUTH_INITIAL_MOCK_STATE,

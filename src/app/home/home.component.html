@@ -3,6 +3,7 @@
 <div class="container-width-full">
   <h2>Budget: {{ budget | currency }}</h2>
 </div>
-<app-hero-list></app-hero-list>
+
+<app-hero-list [heroes]="heroes$ | async"></app-hero-list>
 
 <!-- body end -->

@@ -10,6 +10,10 @@ const AUTH_URL = `${BASE_URL}/auth`;
   providedIn: 'root',
 })
 export class AuthService {
+  get token(): string {
+    return localStorage.getItem('token');
+  }
+
   constructor(private http: HttpClient) {}
 
   register(username, password, email): Observable<AuthResponse> {

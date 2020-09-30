@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { Router } from '@angular/router';
 
 import { ApplicationState } from '../../../store/models/application-state.model';
 import { HeroState } from '../hero-state.model';
-import { HeroesService } from 'src/app/services/hero.service';
+import { HeroesService } from '../../../services/heroes.service';
 import {
   loadHero,
   loadHeroes,
@@ -14,29 +13,20 @@ import {
   loadHeroFailure,
   loadHeroSuccess,
 } from '../actions';
-import { HeroResponse } from 'src/app/services/hero-response.model';
-import { routeChange } from 'src/app/store/actions/router.actions';
-import { getToken } from 'src/app/store/selectors/auth.selectors';
-import { load$, ofRoute } from '../../../store/router-helpers';
-import {
-  map,
-  catchError,
-  switchMap,
-  withLatestFrom,
-  filter,
-  tap,
-} from 'rxjs/operators';
+import { HeroResponse } from '../../../services/hero-response.model';
+import { routeChange } from '../../../store/actions/router.actions';
+import { load$ } from '../../../store/router-helpers';
+import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { getSelectedHero, selectedHeroState } from '../selectors';
+import { selectedHeroState } from '../selectors';
 
 @Injectable({ providedIn: 'root' })
 export class HeroesEffects {
   loadHeroes$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadHeroes),
-      withLatestFrom(this.store.select(getToken)),
-      switchMap(([action, token]) =>
-        this.heroesServies.getHeroes(token).pipe(
+      switchMap(() =>
+        this.heroesService.getHeroes().pipe(
           map((heroes: HeroResponse[]) => loadHeroesSuccess({ heroes })),
           catchError((error) => of(loadHeroesFailure({ error })))
         )
@@ -48,9 +38,8 @@ export class HeroesEffects {
   loadHero$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadHero),
-      withLatestFrom(this.store.select(getToken)),
-      switchMap(([action, token]) =>
-        this.heroesServies.getHero(action.heroId, token).pipe(
+      switchMap(({ heroId }) =>
+        this.heroesService.getHero(heroId).pipe(
           map((hero: HeroResponse) => loadHeroSuccess({ hero })),
           catchError((error) => of(loadHeroFailure({ error })))
         )
@@ -69,6 +58,6 @@ export class HeroesEffects {
   constructor(
     private actions$: Actions,
     private store: Store<ApplicationState>,
-    private heroesServies: HeroesService
+    private heroesService: HeroesService
   ) {}
 }

@@ -1,8 +1,8 @@
 import { RouterReducerState } from '@ngrx/router-store';
 import { AuthState } from './auth-state.model';
 import { UserState } from './user-state.model';
-import { HeroesState } from '../../hero-list/store/heroes-state.model';
-import { HeroState } from '../../hero-list/store/hero-state.model';
+import { HeroesState } from '../../heroes/store/heroes-state.model';
+import { HeroState } from '../../heroes/store/hero-state.model';
 import { RouterStateUrl } from './router.models';
 
 export interface ApplicationState {

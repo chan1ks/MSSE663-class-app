@@ -1,18 +1,22 @@
-// export interface Hero {
-//   id: number;
-//   name: string;
-//   specialty: string;
-//   ranking: Rank;
-//   rent: number;
-// }
+import { Hero, Rank } from '../models/hero.model';
+import { HeroState } from './hero-state.model';
 
-// export enum Rank {
-//   S = 'S',
-//   A = 'A',
-//   B = 'B',
-//   C = 'C',
-// }
+export const MOCK_HERO: Hero = {
+  _id: 'heroId',
+  ranking: [Rank.S],
+  name: 'Spiderman',
+  specialty: 'Superhuman abilities and reflexes',
+  rent: 1000,
+  hired: false,
+};
 
+export const HERO_INITIAL_MOCK_STATE: HeroState = {
+  hero: MOCK_HERO,
+  loading: false,
+  loaded: false,
+};
+
+// More heroes to play with
 // export const HEROES: Hero[] = [
 //   {
 //     id: 1,

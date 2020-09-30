@@ -10,7 +10,7 @@ import {
   CustomSerializer,
   RouterEffects,
 } from './store';
-import { HeroesEffects } from './hero-list/store';
+import { HeroesEffects } from './heroes/store';
 
 @NgModule({
   declarations: [],

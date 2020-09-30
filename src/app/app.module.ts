@@ -11,6 +11,8 @@ import { HeaderModule } from './header/header.module';
 import { HomeModule } from './home/home.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
+import { httpInterceptorProviders } from './http-interceptors';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,7 +26,7 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
     HomeModule,
     PageNotFoundModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

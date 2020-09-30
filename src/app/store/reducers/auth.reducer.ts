@@ -8,16 +8,10 @@ import {
   requestRegistrationSuccess,
 } from '../actions/auth.actions';
 import { AuthState } from '../models/auth-state.model';
-
-export const initialState: AuthState = {
-  isAuth: false,
-  token: null,
-  isTokenExpired: false,
-  loading: false,
-};
+import { AUTH_INITIAL_STATE } from '../auth-initial-state';
 
 const reducer = createReducer(
-  initialState,
+  AUTH_INITIAL_STATE,
   on(requestRegistration, (state) => ({ ...state, loading: true })),
   on(requestRegistrationSuccess, (state) => ({
     ...state,
@@ -29,10 +23,9 @@ const reducer = createReducer(
     loading: false,
   })),
   on(requestLogin, (state) => ({ ...state, loading: true })),
-  on(requestLoginSuccess, (state, { token }) => ({
+  on(requestLoginSuccess, (state) => ({
     ...state,
     isAuth: true,
-    token,
     loading: false,
   })),
   on(requestLoginFailure, (state) => ({
