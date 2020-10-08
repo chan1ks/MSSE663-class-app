@@ -1,7 +1,7 @@
 <!-- body -->
 
 <div class="container-width-full">
-  <h2>Budget: {{ budget | currency }}</h2>
+  <h2 id="budget">Budget: {{ budget | currency }}</h2>
 </div>
 
 <app-hero-list [heroes]="heroes$ | async"></app-hero-list>

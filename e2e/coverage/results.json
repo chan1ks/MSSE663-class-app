@@ -1,0 +1,77 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Application Globals",
+    "line": 2,
+    "id": "application-globals",
+    "tags": [
+      {
+        "name": "@FE",
+        "line": 1
+      },
+      {
+        "name": "@app",
+        "line": 1
+      }
+    ],
+    "uri": "e2e/src/features/app.feature",
+    "elements": [
+      {
+        "id": "application-globals;as-an-unauthenticated-user,-i-can-see-the-app-nav-menu",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "As an unauthenticated user, I can see the app nav menu",
+        "tags": [
+          {
+            "name": "@FE",
+            "line": 1
+          },
+          {
+            "name": "@app",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "e2e/src/steps/auth.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 242000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I see the main nav menu banner",
+            "match": {
+              "location": "e2e/src/steps/app.steps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 621000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

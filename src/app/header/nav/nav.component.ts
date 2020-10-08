@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 interface NavLinks {
@@ -11,7 +11,9 @@ interface NavLinks {
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
+  @Input() isAuth: boolean;
+
   title = 'Rent a Hero';
   links: NavLinks[] = [
     { title: 'Dashboard', fragment: '/' },
@@ -20,6 +22,4 @@ export class NavComponent implements OnInit {
   ];
 
   constructor(public route: ActivatedRoute) {}
-
-  ngOnInit(): void {}
 }
