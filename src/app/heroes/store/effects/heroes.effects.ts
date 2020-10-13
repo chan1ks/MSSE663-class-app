@@ -51,7 +51,7 @@ export class HeroesEffects {
     this.actions$.pipe(
       ofType(routeChange),
       withLatestFrom(this.store.select(selectedHeroState)),
-      load$<HeroState>(loadHero, 'heroes/:heroId')
+      load$<HeroState>(loadHero, ':heroId')
     )
   );
 

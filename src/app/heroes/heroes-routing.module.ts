@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HeroesComponent,
   },
   {
-    path: 'heroes/:heroId',
+    path: ':heroId',
     component: HeroDetailsComponent,
     canActivate: [HeroesGuard],
   },
