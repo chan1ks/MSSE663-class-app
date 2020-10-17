@@ -1,7 +1,7 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 import { ApplicationState } from '../models/application-state.model';
-import { authReducer } from './auth.reducer';
+import { authReducer } from '../../auth/store/reducers';
 import { userReducer } from './user.reducer';
 import { heroesReducer, heroReducer } from '../../heroes/store/reducers';
 

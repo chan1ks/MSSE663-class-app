@@ -1,4 +1,4 @@
-import { HeroResponse } from 'src/app/services/hero-response.model';
+import { HeroResponse } from './hero-response.model';
 
 export interface Hero extends HeroResponse {}
 

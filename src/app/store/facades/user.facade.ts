@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getIsAuth } from '../selectors';
+import { getIsAuth } from 'src/app/auth/store/selectors/auth.selector';
 import { ApplicationState } from '../models/application-state.model';
 
 @Injectable({ providedIn: 'root' })

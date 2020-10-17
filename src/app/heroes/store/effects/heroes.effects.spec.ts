@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Store } from '@ngrx/store';
-import { HeroResponse } from 'src/app/services/hero-response.model';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { MOCK_STORE$ } from 'src/app/store/testing';
 import {
@@ -16,6 +15,7 @@ import { MOCK_HERO } from '../hero-initial-mock-state';
 import { HeroesEffects } from './heroes.effects';
 import { cold, hot } from 'jasmine-marbles';
 import { Observable, of } from 'rxjs';
+import { HeroResponse } from '../../models/hero-response.model';
 
 const mockHeroesService = {
   getHeroes: () => of([MOCK_HERO]),

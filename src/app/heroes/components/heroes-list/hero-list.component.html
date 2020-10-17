@@ -1,29 +1,39 @@
 <div class="container-width-full">
-  <table class="table table-striped" *ngIf="heroes; else loadingHeroes">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
-        <th scope="col" sortable="specialty" (sort)="onSort($event)">
-          Specialty
-        </th>
-        <th scope="col" sortable="ranking" (sort)="onSort($event)">Ranking</th>
-        <th scope="col" sortable="hire" (sort)="onSort($event)">Hire</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let hero of heroes; let id = index">
-        <th scope="row">{{ id }}</th>
-        <th>
-          <a [routerLink]="['/heroes', hero._id]">
-            {{ hero.name }}
-          </a>
-        </th>
-        <th>{{ hero.specialty }}</th>
-        <th>{{ hero.ranking }}</th>
-        <th>{{ hero.rent | currency }}</th>
-      </tr>
-    </tbody>
+  <table
+    mat-table
+    matSort
+    [dataSource]="heroes"
+    *ngIf="heroes; else loadingHeroes"
+  >
+    <ng-container matColumnDef="ranking">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ranking</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.ranking }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Hero</th>
+      <td mat-cell *matCellDef="let hero">
+        <a [routerLink]="['/heroes', hero._id]">
+          {{ hero.name }}
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="specialty">
+      <th mat-header-cell *matHeaderCellDef>Specialty</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.specialty }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rent">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rent</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.rent | currency }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr
+      mat-header-row
+      *matRowDef="let myRowData; columns: columnsToDisplay"
+    ></tr>
   </table>
 
   <ng-template #loadingHeroes>

@@ -1,6 +1,17 @@
-<ng-container *ngIf="hero$ | async as hero">
-  <h2>{{ hero.name }}</h2>
-  <div>{{ hero.specialty }}</div>
-  <div>{{ hero.ranking }}</div>
-  <div>{{ hero.rent | currency }}</div>
-</ng-container>
+<mat-card class="hero-card" *ngIf="hero$ | async as hero">
+  <mat-card-header>
+    <div mat-card-avatar class="spiderman-avatar"></div>
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+    <mat-card-subtitle>{{ hero.rent | currency }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="https://images.indianexpress.com/2019/07/spidey-far-from-home-759.jpg"
+    alt="Ultimate Spiderman"
+  />
+  <mat-card-content>
+    <p>
+      {{ hero.specialty }}
+    </p>
+  </mat-card-content>
+</mat-card>

@@ -4,13 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 
-import {
-  appState,
-  AuthEffects,
-  CustomSerializer,
-  RouterEffects,
-} from './store';
-import { HeroesEffects } from './heroes/store';
+import { appState, CustomSerializer, RouterEffects } from './store';
 
 @NgModule({
   declarations: [],
@@ -20,7 +14,7 @@ import { HeroesEffects } from './heroes/store';
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer,
     }),
-    EffectsModule.forRoot([RouterEffects, AuthEffects, HeroesEffects]),
+    EffectsModule.forRoot([RouterEffects]),
   ],
 })
 export class NgrxModule {}

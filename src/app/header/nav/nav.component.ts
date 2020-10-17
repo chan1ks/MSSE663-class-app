@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 interface NavLinks {
   title: string;
-  fragment: string;
+  path: string;
 }
 
 @Component({
@@ -16,10 +15,11 @@ export class NavComponent {
 
   title = 'Rent a Hero';
   links: NavLinks[] = [
-    { title: 'Dashboard', fragment: '/' },
-    { title: 'Heroes', fragment: '/heroes' },
-    { title: 'Login', fragment: '/login' },
+    { title: 'Dashboard', path: '/' },
+    { title: 'Heroes', path: '/heroes' },
   ];
 
-  constructor(public route: ActivatedRoute) {}
+  constructor() {}
+
+  logout(): void {}
 }

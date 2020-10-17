@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+// Components
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { AuthGuard } from './auth.guard';
+// Guards
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,12 +15,11 @@ const routes: Routes = [
       import('./heroes/heroes.module').then((m) => m.HeroesModule),
     canActivate: [AuthGuard],
   },
+  { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
   {
-    path: 'login',
-    loadChildren: () =>
-      import('./login/login.module').then((m) => m.LoginModule),
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

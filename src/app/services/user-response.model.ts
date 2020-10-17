@@ -1,8 +1,3 @@
-export interface AuthResponse {
-  user: UserResponse;
-  token: string;
-}
-
 export interface UserResponse {
   _id: string;
   username: string;

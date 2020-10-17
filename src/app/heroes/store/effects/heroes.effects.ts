@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { ApplicationState } from '../../../store/models/application-state.model';
 import { HeroState } from '../hero-state.model';
-import { HeroesService } from '../../../services/heroes.service';
+import { HeroesService } from '../../heroes.service';
 import {
   loadHero,
   loadHeroes,
@@ -13,7 +13,7 @@ import {
   loadHeroFailure,
   loadHeroSuccess,
 } from '../actions';
-import { HeroResponse } from '../../../services/hero-response.model';
+import { HeroResponse } from '../../models/hero-response.model';
 import { routeChange } from '../../../store/actions/router.actions';
 import { load$ } from '../../../store/router-helpers';
 import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';

@@ -1,16 +1,17 @@
-<ul ngbNav [activeId]="route.fragment | async" class="nav-tabs">
-  <li ngbNavItem="/">
-    <a ngbNavLink routerLink="/" class="navbar-brand">{{ title }}</a>
-  </li>
-  <li [ngbNavItem]="link.fragment" *ngFor="let link of links">
+<mat-toolbar class="nav-tabs" color="primary">
+  <!-- <button mat-icon-button>
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+  </button> -->
+  <a mat-button routerLink="/">{{ title }}</a>
+  <div *ngFor="let link of links">
     <a
-      ngbNavLink
-      [routerLink]="link.fragment"
+      mat-button
+      [routerLink]="link.path"
       routerLinkActive="router-link-active"
       >{{ link.title }}</a
     >
-  </li>
-  <li ngbNavItem *ngIf="isAuth">
-    <a id="logout" ngbNavLink class="navbar-brand">Logout</a>
-  </li>
-</ul>
+  </div>
+  <span class="example-spacer"></span>
+  <a *ngIf="isAuth" mat-button id="logout" (click)="logout($event)">Logout</a>
+  <a *ngIf="!isAuth" mat-button id="login" routerLink="/">Sign In</a>
+</mat-toolbar>

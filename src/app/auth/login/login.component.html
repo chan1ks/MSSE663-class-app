@@ -1,0 +1,26 @@
+<form class="auth-form" [formGroup]="loginForm">
+  <mat-form-field class="form-group">
+    <mat-label for="username">Username</mat-label>
+    <input
+      matInput
+      id="username"
+      class="form-control"
+      type="text"
+      formControlName="username"
+    />
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label for="password">Password</mat-label>
+    <input
+      matInput
+      id="password"
+      class="form-control"
+      type="password"
+      formControlName="password"
+    />
+  </mat-form-field>
+  <button id="login-cta" mat-flat-button color="primary" (click)="submit()">
+    Login
+  </button>
+  <a id="register-cta" mat-button routerLink="register">Register</a>
+</form>

@@ -1,16 +1,12 @@
 import {
   Component,
   OnInit,
-  ViewChildren,
-  QueryList,
   Input,
+  ViewChild,
+  AfterViewInit,
 } from '@angular/core';
-import {
-  SortableHeaderDirective,
-  SortEvent,
-  SortDirection,
-  compare,
-} from '../directives/sortable-header.directive';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Hero } from '../../models/hero.model';
 
 @Component({
@@ -18,32 +14,21 @@ import { Hero } from '../../models/hero.model';
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
 })
-export class HeroesListComponent implements OnInit {
+export class HeroesListComponent implements OnInit, AfterViewInit {
   @Input() heroes: Hero[];
 
-  // @ViewChildren(SortableHeaderDirective) headers: QueryList<
-  //   SortableHeaderDirective
-  // >;
+  columnsToDisplay: string[] = ['ranking', 'name', 'specialty', 'rent'];
+  dataSource: MatTableDataSource<Hero>;
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<Hero>(this.heroes);
+  }
 
-  onSort({ column, direction }: SortEvent) {
-    // // resetting other headers
-    // this.headers.forEach((header) => {
-    //   if (header.sortable !== column) {
-    //     header.direction = SortDirection.DEFAULT;
-    //   }
-    // });
-    // // sorting heroes
-    // if (direction === '' || column === '') {
-    //   this.heroes = HEROES;
-    // } else {
-    //   this.heroes = [...HEROES].sort((a, b) => {
-    //     const res = compare(a[column], b[column]);
-    //     return direction === SortDirection.ASC ? res : -res;
-    //   });
-    // }
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 }
